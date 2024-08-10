@@ -1,4 +1,3 @@
-# DatabaseTesting_FinalProject
 # Database Testing Final Project - Online Bookstore Database Design
 ## Duties
 Group03:
@@ -146,48 +145,6 @@ CREATE TABLE sales (
     quantity INT NOT NULL
 );
 ```
- 
-## DDL/DML - CRUD Operations in books Table
-#### DDL:
-*SQL code is already provided in above section.*
-```sql
- 
-CREATE SEQUENCE book_id_seq START 1;
-CREATE TABLE books (
-    book_id VARCHAR(50) PRIMARY KEY DEFAULT ('BOOK' || LPAD(nextval('book_id_seq')::TEXT,5,'')) NOT NULL,
-    title VARCHAR(100) NOT NULL,
-    genre VARCHAR(50) NOT NULL,
-    author_id INT REFERENCES authors(author_id) NOT NULL,
-    publisher_id INT REFERENCES publishers(publisher_id) NOT NULL,
-    publication_date DATE NOT NULL,
-    book_format VARCHAR(20) CHECK (book_format IN ('Physical', 'E-book', 'Audiobook')) NOT NULL,
-    quantity INT,
-    price DECIMAL(10, 2) NOT NULL
-);
-```
- 
-#### DML:
- 
-```sql
- 
---Insert a Record (Create)
-INSERT INTO authors( name) VALUES ( 'Chetan Bhagat'), ( 'Arundhati Rai'), ( 'Kamala Suraya');
-INSERT INTO publishers( name) VALUES ( 'Dona Books'), ( 'DC Books');
-INSERT INTO books( title, genre, author_id, publisher_id, publication_date, book_format, quantity, price)
-VALUES ('Good Days are Coming', 'Drama', 1, 2, '2024-06-15', 'E-book', NULL, 65.05), ('Book of Hopes', 'Fiction', 3, 1, '2023-01-01', 'Physical', 10, 19.99);
- 
---Retrieve a Record (Read)
-SELECT * FROM books WHERE book_id = 'BOOK2';
- 
---Update a Record (Update)
-UPDATE books SET title = 'Book of Mystery', genre = 'Mystery', quantity = 8, price = 21.99 WHERE book_id = 'BOOK2';
- 
---Delete a Record (Delete)
-DELETE FROM books WHERE book_id = 'BOOK2';
- 
-```
- 
- 
 ## SQL Queries for Requirements
 #### 1. Power writers
  
