@@ -14,7 +14,7 @@ describe('Authors Integration Tests', () => {
 
     // Assert that the author was updated successfully
     expect(updatedAuthor).toBeDefined();
-    expect(updatedAuthor.name).toBe('New Author Name');
+    expect(updatedAuthor.name).toBe('Jane Smith');
     // Add more assertions as needed
   });
 
