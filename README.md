@@ -3,8 +3,8 @@
 Group03:
 * Member 1: Anuroopa Balachandran -
     * Set up the project structure using TypeScript and TypeORM.
-    * Design the database schema and create an Entity-Relationship (ER) diagram.
     * Implement CRUD functions for half of the tables.
+    * Configure the project for containerization.
  
 * Member 2: Sangeetha Radhakrishnan -
     * Implement CRUD functions for the remaining tables.
@@ -12,7 +12,7 @@ Group03:
  
 * Member 3: Swathi Kona -
     * Write integration tests for CRUD operations.
-    * Configure the project for containerization.
+    * Create an Entity-Relationship (ER) diagram.
     * Create and update the README.md file with setup instructions and usage guidelines.
  
 ## Database Schema
@@ -23,7 +23,7 @@ Online Bookstore Database Design, including the below mentioned tables and its a
  
 | Attribute        | Type          | Description                             |
 |------------------|---------------|-----------------------------------------|
-| customer_id      | VARCHAR(50)   | Primary Key; Customer unique ID         |
+| customer_id      | SERIAL PRIMARY KEY | Primary Key; Customer unique ID         |
 | name             | VARCHAR(100)  | Name of the customer                    |
 | email            | VARCHAR(100)  | Email address of the customer           |
 | address          | VARCHAR(200)  | Address of the customer                 |
@@ -48,7 +48,7 @@ Online Bookstore Database Design, including the below mentioned tables and its a
 #### 4. Books
 | Attribute        | Type          | Description                                               |
 |------------------|---------------|-----------------------------------------------------------|
-| book_id          | VARCHAR(50)   | Primary Key; Book unique ID                               |
+| book_id          | SERIAL PRIMARY KEY | Primary Key; Book unique ID                               |
 | title            | VARCHAR(100)  | Title of the book                                         |
 | genre            | VARCHAR(50)   | Genre of the book                                         |
 | author_id        | INT           | Foreign Key; REFERENCES authors(author_id)                |
@@ -62,7 +62,7 @@ Online Bookstore Database Design, including the below mentioned tables and its a
  
 | Attribute        | Type          | Description                                    |
 |------------------|---------------|------------------------------------------------|
-| review_id        | VARCHAR(50)   | Primary Key; Review unique ID                  |
+| review_id        | SERIAL PRIMARY KEY | Primary Key; Review unique ID                  |
 | customer_id      | INT           | Foreign Key; REFERENCES customers(customer_id) |
 | book_id          | INT           | Foreign Key; REFERENCES books(book_id)         |
 | review_date      | DATE          | Date of the review                             |
@@ -73,7 +73,7 @@ Online Bookstore Database Design, including the below mentioned tables and its a
 #### 6. Sales
 | Attribute        | Type          | Description                                    |
 |------------------|---------------|------------------------------------------------|
-| sale_id          | VARCHAR(50)   | Primary Key; Order unique ID                   |
+| sale_id          | SERIAL PRIMARY KEY | Primary Key; Order unique ID                   |
 | customer_id      | INT           | Foreign Key; REFERENCES customers(customer_id) |
 | book_id          | INT           | Foreign Key; REFERENCES books(book_id)         |
 | sale_date        | DATE          | Date of the sale                               |
